@@ -1,12 +1,14 @@
 {
   "name": "project-demo",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
     "cesium": "^1.132.0",
@@ -14,9 +16,12 @@
     "vue": "^3.5.18"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^5.2.1",
     "@types/node": "^24.3.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.7.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-format": "^1.0.1",
     "sass": "^1.91.0",
     "typescript": "~5.8.3",
     "unplugin-auto-import": "^20.0.0",

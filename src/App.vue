@@ -3,7 +3,9 @@
 
 <template>
   <div>
-    <el-button type="primary">Click</el-button>
+    <el-button type="primary">
+      Click
+    </el-button>
   </div>
 </template>
 
