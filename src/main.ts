@@ -1,5 +1,8 @@
 import { createApp } from 'vue'
 import App from '@/App.vue'
+import registerSvgIcon from '@/plugins/svg-register'
 import '@/style.css'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+app.use(registerSvgIcon)
+app.mount('#app')

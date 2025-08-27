@@ -6,6 +6,7 @@
     <el-button type="primary">
       Click
     </el-button>
+    <svg-icon name="add" color="#ddd" size="100" />
   </div>
 </template>
 
