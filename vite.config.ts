@@ -1,6 +1,7 @@
 import path from 'node:path'
 import process from 'node:process'
 import { fileURLToPath, URL } from 'node:url'
+import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
@@ -18,6 +19,7 @@ export default defineConfig({
     }),
     vue(),
     cesium(),
+    tailwindcss(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
     }),
