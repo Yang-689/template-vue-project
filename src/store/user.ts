@@ -17,7 +17,6 @@ export const useUserStore = defineStore('user', () => {
   const userId = ref('996')
   const token = useLocalStorage<string>('token', '')
   const menus = markRaw<any[]>(_menus)
-  console.log('menus', menus)
 
   const isLogin = computed(() => !!token.value)
 

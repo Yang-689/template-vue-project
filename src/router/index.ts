@@ -7,18 +7,14 @@ import pinia, { useUserStore } from '@/store'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'index',
-    component: () => import('@/views/Home.vue'),
-    meta: {
-      title: '首页1',
-    },
+    redirect: '/home',
   },
   {
     path: '/home',
     name: 'Home',
     component: () => import('@/views/Home.vue'),
     meta: {
-      title: '首页2',
+      title: '首页',
     },
   },
   {
@@ -46,6 +42,11 @@ const router = createRouter({
   routes,
 })
 
+// 动态路由
+const _dynamicRoutes = {
+  Management: () => import('@/modules/Management/router'),
+}
+
 // #region Permission 权限控制
 const userStore = useUserStore(pinia)
 const whiteList = ['/', '/home', '/login', '/404']
@@ -64,9 +65,9 @@ router.beforeEach(async (to, _from) => {
   if (userStore.isLogin && !whiteList.includes(to.path)) {
     if (userStore.verifyMenuPermission(to.path)) {
       if (!hasRoute({ path: to.path })) {
-        console.warn('to', to)
-        console.warn('添加路由')
         await addDynamicRoute(to.path)
+
+        console.log('🕸️routes', router.getRoutes())
 
         // 重新触发一次当前地址的匹配，避免被通配 404 抢占
         // return to.path
@@ -97,10 +98,6 @@ router.afterEach((to, from) => {
 // #endregion
 
 export default router
-
-const _dynamicRoutes = {
-  Management: () => import('@/modules/Management/router'),
-}
 
 function hasRoute({ path, name }: { path?: string, name?: string }) {
   if (name) {
