@@ -1,5 +1,5 @@
 {
-  "name": "project-demo",
+  "name": "template-vue-project",
   "type": "module",
   "version": "0.0.0",
   "private": true,
@@ -11,9 +11,12 @@
     "lint:fix": "eslint --fix"
   },
   "dependencies": {
+    "@vueuse/core": "^13.8.0",
     "cesium": "^1.132.0",
     "element-plus": "^2.11.1",
-    "vue": "^3.5.18"
+    "pinia": "^3.0.3",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.2.1",
@@ -29,6 +32,7 @@
     "vite": "^7.1.2",
     "vite-plugin-cesium": "^1.2.23",
     "vite-plugin-svg-icons": "^2.0.1",
+    "vite-plugin-vue-devtools": "^8.0.1",
     "vue-tsc": "^3.0.5"
   }
 }

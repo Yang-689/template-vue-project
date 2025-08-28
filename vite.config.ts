@@ -7,12 +7,15 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import cesium from 'vite-plugin-cesium'
-
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    vueDevTools({
+      launchEditor: 'cursor',
+    }),
     vue(),
     cesium(),
     AutoImport({
